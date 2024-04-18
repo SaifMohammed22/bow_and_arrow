@@ -18,7 +18,7 @@ public class Level1 {
     }
 
     public void setBalloons() {
-        for (int i = 0; i < numBalloons; i++) {
+        for (int i = 0; i <= numBalloons; i++) {
             balloons.add(new Balloons(parent.width - 35 * (i + 1), parent.height, speed, img));
         }
     }
