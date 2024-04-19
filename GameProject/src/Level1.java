@@ -1,7 +1,8 @@
 import processing.core.*;
+
 import java.util.ArrayList;
 
-public class Level1 {
+public class Level1{
     private PApplet parent;
     private ArrayList<Balloons> balloons;
     private int numBalloons;
@@ -16,9 +17,11 @@ public class Level1 {
         balloons = new ArrayList<Balloons>();
         setBalloons();
     }
+    
+    
 
     public void setBalloons() {
-        for (int i = 0; i <= numBalloons; i++) {
+        for (int i = 0; i < numBalloons; i++) {
             balloons.add(new Balloons(parent.width - 35 * (i + 1), parent.height, speed, img));
         }
     }
@@ -34,4 +37,7 @@ public class Level1 {
             }
         }
     }
+    
+ 
+	
 }

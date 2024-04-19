@@ -14,17 +14,14 @@ public class Archer{
 	}
 	
 	public void display() {
-		//parent.background(0,255,0);
 		parent.image(img, x, y);
 	}
 	
 	public void arm() {
-		//parent.background(0,255,0); //clear background
 		img = parent.loadImage("pic/hero_armed.png");
 	}
 	
 	public void shoot() {
-		//parent.background(0,255,0);
 		img = parent.loadImage("pic/hero_without_arrow.png");
 	}
 	
@@ -43,14 +40,15 @@ public class Archer{
 	
 	public void mousePressed() {
 		if (parent.mouseButton == PConstants.RIGHT) {
-            arm();
-        } else if (parent.mouseButton == PConstants.LEFT) {
-            shoot();
-        }
+			arm();
+        } 
+		else if (parent.mouseButton == PConstants.LEFT) {
+	            shoot();
+		}
 	}
 	
 	public void mouseDragged() {
-        if (parent.mouseButton == PConstants.LEFT) {
+        if (parent.mouseButton == PConstants.RIGHT) {
             float newY = parent.mouseY;
             updatePosition(x, newY);
         }

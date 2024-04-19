@@ -20,6 +20,10 @@ public class Balloons {
     public void draw(PApplet p) {
         p.image(img, x, y); // Draw the balloon image
     }
+    
+    public float getX() {
+    	return x;
+    }
 
     public float getY() {
         return y;
@@ -27,5 +31,14 @@ public class Balloons {
 
     public void setY(float y) {
         this.y = y;
+    }
+    
+    public float getWidth() {
+    	return img.width;
+    }
+    
+    public float getHeight() {
+    	
+    	return img.height;
     }
 }

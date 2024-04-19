@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 import processing.core.*;
+
 
 public class Arrows {
     private PApplet parent;
@@ -6,7 +9,8 @@ public class Arrows {
     private float x;
     private float y;
     private boolean isActive;
-    private int speed = 3;
+    private int speed = 4;
+    
 
     public Arrows(PApplet parent, PImage img) {
         this.parent = parent;
@@ -38,13 +42,25 @@ public class Arrows {
 
     public void shoot(float archerX, float archerY) {
         if (parent.mouseButton == PConstants.LEFT && !isActive) {
-            update(archerX, archerY);
+            update(archerX + 40, archerY + 40);
         }
     }
 
-    public void move() {
+    public void move(ArrayList<Balloons> balloons) {
         if (isActive) {
             x += speed;
+            
+            for (Balloons balloon : balloons) { 
+            	if (collide(balloon)) {
+                	balloons.remove(balloon);
+                }
+            	System.out.println(collide(balloon)); 	
+            }
         }
+      }
+
+    public boolean collide(Balloons balloon) {
+    	float distance = PApplet.dist(x, y, balloon.getX(), balloon.getY());
+    	return distance < 5;
     }
 }
