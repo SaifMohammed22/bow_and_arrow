@@ -1,6 +1,8 @@
 import processing.core.*;
 import java.util.ArrayList;
 
+
+
 public class Level2 {
     private PApplet parent;
     private ArrayList<Balloons> balloons;
@@ -23,7 +25,7 @@ public class Level2 {
         setBalloons();
     }
 
-    public void setBalloons() {
+    public ArrayList<Balloons> setBalloons() {
         // Add red balloons
         for (int i = 0; i < numRedBalloons; i++) {
             float x = parent.random(parent.width /2, parent.width - 35*(i+1));
@@ -37,6 +39,7 @@ public class Level2 {
             float speed = yellowBalloonSpeeds[i % yellowBalloonSpeeds.length];
             balloons.add(new Balloons(x, y, speed, yellowBalloonImg));
         }
+        return balloons;
     }
 
     public void show() {
@@ -45,7 +48,7 @@ public class Level2 {
             balloon.update();
             balloon.draw(parent);
             // Reset the position if the balloon goes out of the window
-            if (balloon.getY() < -10) {
+            if (balloon.getY() < -50) {
                 balloon.setY(parent.height); // Set the y position to the bottom of the sketch window
             }
         }

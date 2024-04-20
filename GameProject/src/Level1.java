@@ -20,10 +20,11 @@ public class Level1{
     
     
 
-    public void setBalloons() {
+    public ArrayList<Balloons> setBalloons() {
         for (int i = 0; i < numBalloons; i++) {
             balloons.add(new Balloons(parent.width - 35 * (i + 1), parent.height, speed, img));
         }
+		return balloons;
     }
 
     public void show() {
@@ -32,10 +33,14 @@ public class Level1{
             balloon.update();
             balloon.draw(parent);
             // Reset the position if the balloon goes out of the window
-            if (balloon.getY() < -10) {
+            if (balloon.getY() < -50) {
                 balloon.setY(parent.height); // Set the y position to the bottom of the sketch window
             }
         }
+    }
+    
+    public boolean isAllHit() {
+    	return balloons.isEmpty();
     }
     
  
