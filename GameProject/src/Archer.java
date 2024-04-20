@@ -51,7 +51,11 @@ public class Archer{
         if (parent.mouseButton == PConstants.RIGHT) {
             float newY = parent.mouseY;
             updatePosition(x, newY);
+		if (newY>=750){
+				this.y=750;
+			}
         }
     }
+	
 	
 }
